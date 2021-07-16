@@ -1,0 +1,25 @@
+{
+    "name": "ryde-assignment",
+    "version": "1.0.0",
+    "description": "Ryde Assignment",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon src/index.js",
+        "db-access-cli": "cross-env dotenv run psql",
+        "db-create": "cross-env dotenv run createdb -h localhost -p 5432 -U postgres ryde",
+        "db-rollback": "cross-env dotenv run psql -f db/user.sql",
+        "db-initial-setup": "npm run db-create && npm run db-rollback"
+    },
+    "author": "Jing Wei Chan",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^9.0.2",
+        "express": "^4.17.1",
+        "mysql": "^2.18.1",
+        "pg-promise": "^10.10.2"
+    },
+    "devDependencies": {
+        "cross-env": "^7.0.3",
+        "nodemon": "^2.0.7"
+    }
+}
