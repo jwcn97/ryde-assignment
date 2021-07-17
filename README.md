@@ -66,3 +66,11 @@ another table called 'user_relations' will be setup where it uses user ids to ke
 -   the API endpoints to get the users that a user is following will be `/api/user/<id>/following` where the db will return the records where `requester_id = <id>`
 
 ## Authentication
+
+**Basic Auth**
+
+-   We could add in the email and password attributes in the user entity where a user would have to login by providing these two values. Standard jwt libraries can be used to sign a token during login, which will then be used by the frontend module to make subsequent API calls + ensure persistent login state.
+
+**Advanced Auth**
+
+-   For more advanced feature like email validation, social login, customizable password policies, third party softwares such as Keycloak can be integrated with the database to ensure a more robust and secure system.
