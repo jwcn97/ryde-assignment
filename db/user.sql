@@ -97,6 +97,37 @@ begin
 end;$$
 ;
 
+DROP FUNCTION if exists get_user_by_name;
+create or replace function get_user_by_name(_name varchar)
+returns table (
+  id int,
+  name varchar,
+  dob varchar,
+  address varchar,
+  latitude decimal,
+  longitude decimal,
+  description varchar
+)
+language plpgsql    
+as $$
+begin
+
+  return query
+    select  
+      u.id,
+      u.name,
+      u.dob,
+      u.address,
+      u.latitude,
+      u.longitude,
+      u.description
+    from users as u
+    where u.name = _name
+  ;
+
+end;$$
+;
+
 create or replace function delete_user(_id int)
 returns int
 language plpgsql    
@@ -187,6 +218,39 @@ begin
   ;
 
   return num_rows_updated;
+
+end;$$
+;
+
+drop function if exists find_nearby_users;
+create or replace function find_nearby_users(_id int, max_lat decimal, min_lat decimal, max_long decimal, min_long decimal)
+returns table (
+  id int,
+  name varchar,
+  dob varchar,
+  address varchar,
+  latitude decimal,
+  longitude decimal,
+  description varchar
+)
+language plpgsql    
+as $$
+begin
+
+  return query
+    select  
+      u.id,
+      u.name,
+      u.dob,
+      u.address,
+      u.latitude,
+      u.longitude,
+      u.description
+    from users as u
+    where u.id != _id
+    and u.latitude between min_lat and max_lat
+    and u.longitude between min_long and max_long
+  ;
 
 end;$$
 ;
