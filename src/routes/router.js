@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const logger = require('../logger');
 
 // log requests
 router.use('*', (req, res, next) => {
-    console.log(`[api]: ${req.method} ${req.baseUrl}`);
+    logger.info(`[api]: ${req.method} ${req.baseUrl}`);
     next();
 });
 
@@ -14,7 +15,7 @@ routeFiles.forEach((route) => {
     try {
         router.use(`/${route}`, routeFile);
     } catch (err) {
-        console.log(`[route] Router file ${routeFile} does not exists.`);
+        logger.error(`[route] Router file ${routeFile} does not exists.`);
     }
 });
 

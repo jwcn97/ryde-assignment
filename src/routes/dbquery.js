@@ -1,4 +1,5 @@
 const db = require('../config/database.js');
+const logger = require('../logger');
 
 const dbQuery = async ({
     query = '',
@@ -8,11 +9,11 @@ const dbQuery = async ({
     return await db
         .any(query)
         .then((data) => {
-            console.log(`[dbquery]: ${query}`);
+            logger.debug(`[dbquery]: ${query}`);
             return successCallback(data);
         })
         .catch((error) => {
-            console.log(`[dbquery]: ${query}`);
+            logger.error(`[dbquery]: ${query}`);
             return failureCallback(error);
         });
 };
