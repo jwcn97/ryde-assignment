@@ -1,5 +1,6 @@
 const supertest = require('supertest');
 const app = require('../../src/index');
+const { setup, teardown } = require('./cleanup');
 
 describe('Testing the GET API', () => {
     it('get all users', async () => {
