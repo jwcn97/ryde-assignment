@@ -65,7 +65,7 @@ another table called 'user_relations' will be setup where it uses user ids to ke
 -   the API endpoints to get the followers of a user will be `/api/user/<id>/followers` where the db will return the records where `user_id = <id>`
 -   the API endpoints to get the users that a user is following will be `/api/user/<id>/following` where the db will return the records where `requester_id = <id>`
 
-## Authentication
+## Authentication Strategy
 
 **Basic Auth**
 
