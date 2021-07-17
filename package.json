@@ -9,6 +9,7 @@
         "db-access-cli": "cross-env dotenv run psql",
         "db-create": "cross-env dotenv run createdb -h localhost -p 5432 -U postgres ryde",
         "db-rollback": "cross-env dotenv run psql -f db/user.sql",
+        "db-seed": "npm run db-rollback && cross-env dotenv run psql -f db/seed.sql",
         "db-initial-setup": "npm run db-create && npm run db-rollback"
     },
     "author": "Jing Wei Chan",
