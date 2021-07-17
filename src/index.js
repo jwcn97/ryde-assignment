@@ -12,7 +12,7 @@ app.use('/api', router);
 
 // handle unhandled 404 requests
 app.use('*', (req, res) => {
-    console.error(`[route]: Route does not exists: ${req.baseUrl}`);
+    console.log(`[route]: Route does not exists: ${req.baseUrl}`);
     res.status(404).send('request not found');
 });
 

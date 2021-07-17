@@ -14,7 +14,7 @@ routeFiles.forEach((route) => {
     try {
         router.use(`/${route}`, routeFile);
     } catch (err) {
-        console.error(`[route] Router file ${routeFile} does not exists.`);
+        console.log(`[route] Router file ${routeFile} does not exists.`);
     }
 });
 

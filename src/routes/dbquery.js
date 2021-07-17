@@ -12,7 +12,7 @@ const dbQuery = async ({
             return successCallback(data);
         })
         .catch((error) => {
-            console.error(`[dbquery]: ${query}`);
+            console.log(`[dbquery]: ${query}`);
             return failureCallback(error);
         });
 };
