@@ -3,6 +3,7 @@
 ## Prerequisites
 
 -   node (v12.18.3)
+-   npm (v6.14.8)
 -   psql (v13.1)
 
 ## Install packages
